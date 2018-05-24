@@ -63,8 +63,8 @@ export const getFavorites = ({ commit }) => {
 
 
 // Explore
-export const getImagesAndTags = ({ commit }, tags) => {
-    return axios.post(`/api/images/tags`, tags).then((response) => {
+export const getImagesAndTags = ({ commit }, url ) => {
+    return axios.get(url).then((response) => {
         commit('storeImages', response.data.images)
         commit('storeTags', response.data.tags)
     })

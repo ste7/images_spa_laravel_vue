@@ -12,7 +12,7 @@ class ExploreController extends Controller
 {
     public function getImagesAndTags(Request $request)
     {
-        $tagsArray = $request->input('tags');
+        $tagsArray = explode(',', $request->tags);
 
         $tags = DB::table('image_tag')
             ->select(DB::raw('count(*) as count, tags.*'))
@@ -22,7 +22,7 @@ class ExploreController extends Controller
             ->limit(10)
             ->get();
 
-        if (! count($tagsArray)) {
+        if (! $request->tags) {
             $images = Image::with('likes', 'user', 'user.likes')->get();
 
             return response()->json([

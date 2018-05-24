@@ -41,4 +41,4 @@ Route::get('/image/{id}/delete', 'ImageController@imageDelete');
 Route::get('/image/{id}/like', 'LikeController@likeImage');
 
 // Explore
-Route::post('/images/tags', 'ExploreController@getImagesAndTags');
+Route::get('/images/tags/{tags?}', 'ExploreController@getImagesAndTags');

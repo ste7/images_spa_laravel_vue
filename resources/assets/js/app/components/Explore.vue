@@ -62,7 +62,7 @@
                     el[i].classList.remove('selected');
                 }
 
-                this.getImagesAndTags({tags: this.selected});
+                this.getImagesAndTags(`/api/images/tags`);
             },
 
             select(id, index) {
@@ -85,8 +85,7 @@
                 }
 
 
-
-                this.getImagesAndTags({tags: this.selected});
+                this.getImagesAndTags(`/api/images/tags/${this.selected}`);
             },
 
             didILike(index) {
@@ -126,7 +125,7 @@
         },
 
         created() {
-            this.getImagesAndTags({tags: this.selected});
+            this.getImagesAndTags(`/api/images/tags`);
         }
     }
 </script>
